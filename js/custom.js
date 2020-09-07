@@ -385,8 +385,13 @@ function js_send() {
 
 	return false;
 }
-
+try{
 sendButton.onclick = js_send;
+}
+
+catch(err) {
+	console.log(err);
+  }
 
 function toParams(jsData) {
 	var form_data = [];
