@@ -397,7 +397,7 @@ function toParams(jsData) {
 	return form_data.join("&");
 }
 
-var js_form = document.getElementById(form_id);
+var js_form = document.getElementById("email_form");
 js_form.addEventListener("submit", function (e) {
 	e.preventDefault();
 });
