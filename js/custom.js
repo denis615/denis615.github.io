@@ -334,23 +334,14 @@
 
 })();
 
-var submitBtn=document.getElementById("submit_form");
-var form=document.getElementById("email_form");
+var form_id_js =document.getElementById("javascript_form");
 
-form.addEventListener("submit",function(e){
-	setTimeout(function(){
-		submitBtn.value="Sending..."
-		submitBtn.disabled=true;
-	},1)
-})
-
-var form_id=document.getElementById("email_form")
-
-var jsData={
+var data_js = {
 	"access_token": "r6uezk1w1ma8hckhnrr1ucql"
-}
+};
 
-function js_onSuccess(){
+function js_onSuccess() {
+	// remove this to avoid redirect
 	window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
 }
 
@@ -359,7 +350,8 @@ function js_onError(error) {
 	window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
 }
 
-let sendBtn=document.getElementById("submit_form")
+var sendButton = document.getElementById("js_send");
+
 function js_send() {
 	sendButton.value='Sending…';
 	sendButton.disabled=true;
@@ -372,10 +364,15 @@ function js_send() {
 			js_onError(request.response);
 		}
 	};
-	var subject = document.querySelector("#" + submitBtn + " [name='subject']").value;
-	var message = document.querySelector("#" + submitBtn+ " [name='text']").value;
-	jsData['subject'] = subject;
-	jsData['text'] = message;
+	var name=document.getElementById("nameContact")
+	var subject = document.getElementById("emailForm").value
+	var message = document.getElementById("message").value
+	var phone=document.getElementById("phoneContact")
+	var contactEmail=document.getElementById("emailForm")
+
+	message+=`The message is from:${name.value} and the phone number to reach him is: ${phone.value}, the email where you can reach him is ${contactEmail.value}`
+	data_js['subject'] = subject;
+	data_js['text'] = message;
 	var params = toParams(data_js);
 
 	request.open("POST", "https://postmail.invotes.com/send", true);
@@ -385,24 +382,19 @@ function js_send() {
 
 	return false;
 }
-try{
+
 sendButton.onclick = js_send;
-}
 
-catch(err) {
-	console.log(err);
-  }
-
-function toParams(jsData) {
+function toParams(data_js) {
 	var form_data = [];
-	for ( var key in jsData ) {
-		form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(jsData[key]));
+	for ( var key in data_js ) {
+		form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
 	}
 
 	return form_data.join("&");
 }
 
-var js_form = document.getElementById("email_form");
+var js_form = document.getElementById("javascript_form");
 js_form.addEventListener("submit", function (e) {
 	e.preventDefault();
 });

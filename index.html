@@ -376,6 +376,10 @@
 
 	</div>
 </section>
+
+	
+
+	
 	<section class="site-section" id="section-contact">
 		<div class="container">
 			<div class="row">
@@ -386,25 +390,22 @@
 				</div>
 
 				<div class="col-md-7 mb-5 mb-md-0">
-					<form action="https://postmail.invotes.com/send" class="site-form" method="POST" id="email_form">
+					<form action="" class="site-form" id="javascript_form">
 						<h3 class="mb-5">Get In Touch</h3>
 						<div class="form-group">
 							<input type="text" id="nameContact" class="form-control px-3 py-4" placeholder="Your Name">
 						</div>
 						<div class="form-group">
-							<input id="emailForm" type="email" class="form-control px-3 py-4" placeholder="Your Email">
+							<input id="emailForm" name="subject" type="email" class="form-control px-3 py-4" placeholder="Your Email">
 						</div>
 						<div class="form-group">
 							<input id="phoneContact" type="tel" class="form-control px-3 py-4" placeholder="Your Phone">
 						</div>
 						<div class="form-group mb-5">
-							<textarea id="message" class="form-control px-3 py-4"cols="30" rows="10" placeholder="Write a Message"></textarea>
+							<textarea name="text" id="message" class="form-control px-3 py-4"cols="30" rows="10" placeholder="Write a Message"></textarea>
 						</div>
 						<div class="form-group">
-							<input id="submit_form" type="submit" class="btn btn-primary  px-4 py-3" value="Send">
-							<input type="hidden" name="access_token" value="r6uezk1w1ma8hckhnrr1ucql" />
-							<input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
-							<input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
+							<input id="js_send" type="submit" class="btn btn-primary  px-4 py-3" value="Send">
 						</div>
 					</form>
 				</div>
